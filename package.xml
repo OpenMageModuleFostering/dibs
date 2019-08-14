@@ -1,0 +1,63 @@
+<?xml version="1.0"?>
+<package>
+    <name>DIBS</name>
+    <version>1.0.0.8</version>
+    <stability>stable</stability>
+    <license>GPL</license>
+    <channel>community</channel>
+    <extends/>
+    <summary>Accept all types of payments from DIBS - Secure Internet Payment Service Provider</summary>
+    <description>This is the payment gateway module for the DIBS payment gateway - http://www.dibspayment.com
+
+DIBS Payment Services is the leading Scandinavian Internet service provider.
+
+Security and credibility are important keywords to companies handling payment transactions. Hence, DIBS has achieved VISA/MasterCard PCI certification and devotes its efforts to constantly enhancing its security  solutions.
+
+Card types accepted by the DIBS payment gateway:
+- Dankort
+- VISA/Dankort
+- VISA
+- VISA Electron
+- MasterCard
+- Maestro
+- JCB
+- Diners
+- American Express
+- Forbrugsforeningen
+- eWire
+- VISA 3D Secure
+- MaserCard 3D secure
+- JCB 3D secure
+- Danske Bank e-betaling
+- Nordea e-betaling
+
+A complete list can be found at http://www.dibspayment.com/</description>
+    <notes>1.0.0.7
+- Minor language update
+
+1.0.0.6
+- Fixed currency bug
+-  Added order information to DIBS payment process
+
+1.0.0.5
+- Added extra complete status for order
+
+1.0.0.3
+- Added order information to DIBS payment process
+
+1.0.0.2
+- Minor language update
+
+1.0.0.1
+- Added languages:
+Danish, Norwegian, Swedish
+- Added support for "Skip accept page"
+
+First release 1.0.0.0</notes>
+    <authors><author><name>DIBS AS</name><user>auto-converted</user><email>plugins@dibs.dk</email></author></authors>
+    <date>2009-10-19</date>
+    <time>08:25:24</time>
+    <contents><target name="mageskin"><dir name="adminhtml"><dir name="default"><dir name="default"><dir name="images"><dir name="dibs"><file name="aktia.gif" hash="7afe00b19b4194fa4ffbdf20cdd469c1"/><file name="amex.gif" hash="f35f89ccdcb954e02a07f6c0a29c7b43"/><file name="bak.gif" hash="c315574fd839dae52a1316b6d8b836b6"/><file name="bankeinzug.gif" hash="3bd20355343bd250a6a704fdbaf9ba62"/><file name="dankort.gif" hash="daa5d5d2c0d541579b0e13aa3cd9d65b"/><file name="danskenetbetaling.gif" hash="1f616c382b72248334f6aa1ca910003b"/><file name="dibslogo.gif" hash="8b308757472fc5aaaedfefd5c79a2d54"/><file name="diners.gif" hash="fabce04659a94993a230285b9a4651e9"/><file name="edankort.gif" hash="4485910a0fb40512233c1a59ddd31015"/><file name="ewire.gif" hash="b50385f7d878be6a3834310d1fbc3a1d"/><file name="forbrugforeningen.gif" hash="d9cd7fa26230a850114b2dc99aea3b22"/><file name="getitcard.gif" hash="b70e244f36e7aec94fe3f6373e1ae8d7"/><file name="ideal.gif" hash="40f07b266bcd5953bb6c079f7eeaae67"/><file name="jcb.gif" hash="aea8c54e043a75b26887fa1307ad4312"/><file name="jcbsecure.gif" hash="1c687214f79b73d7e99f5011c9c22bce"/><file name="loading.gif" hash="7e99e1159a3686f6aa4f90043c554483"/><file name="maestro.gif" hash="d5df5f7986a21bf5a78b9c7a3656facd"/><file name="mastercard.gif" hash="2680e078159e5aedb561c3a705801a44"/><file name="mastercardsecurecode.gif" hash="730735c1e2d36d9fa3bd6468fa0b1a7d"/><file name="mobilcash.gif" hash="befd2f10976c0ab40333f01fc6db4743"/><file name="nordeasole.gif" hash="17b9be1a06125dcc7d1a6be8fea38dd6"/><file name="oko.gif" hash="1cde3c12036ebd74a643aee2ffb0513a"/><file name="pci.gif" hash="b55a87df550ea6789c17e389604e28e1"/><file name="seb.gif" hash="502b1dbeb81bce51abd1ea149d4dde14"/><file name="shbdirektbetaling.gif" hash="0aa7c7fab4133ff4843c0ae73cabe9de"/><file name="swedbankdirektbetaling.gif" hash="d6da3e67f8096811c2ad0135b2aad80a"/><file name="valus.gif" hash="e62b75eb172934e118a70366baac51ee"/><file name="verifiedbyvisa.gif" hash="517118742fce249485c8eaf6df174764"/><file name="visa.gif" hash="b61251f8c428aa5dca017c9f374957ef"/><file name="visaelectron.gif" hash="e5371ba0da9bb14990d1b8163cedd066"/></dir></dir></dir></dir></dir><dir name="frontend"><dir name="default"><dir name="default"><dir name="images"><dir name="dibs"><file name="aktia.gif" hash="7afe00b19b4194fa4ffbdf20cdd469c1"/><file name="amex.gif" hash="f35f89ccdcb954e02a07f6c0a29c7b43"/><file name="bak.gif" hash="c315574fd839dae52a1316b6d8b836b6"/><file name="bankeinzug.gif" hash="3bd20355343bd250a6a704fdbaf9ba62"/><file name="dankort.gif" hash="daa5d5d2c0d541579b0e13aa3cd9d65b"/><file name="danskenetbetaling.gif" hash="1f616c382b72248334f6aa1ca910003b"/><file name="dibslogo.gif" hash="8b308757472fc5aaaedfefd5c79a2d54"/><file name="diners.gif" hash="fabce04659a94993a230285b9a4651e9"/><file name="edankort.gif" hash="4485910a0fb40512233c1a59ddd31015"/><file name="ewire.gif" hash="b50385f7d878be6a3834310d1fbc3a1d"/><file name="forbrugforeningen.gif" hash="d9cd7fa26230a850114b2dc99aea3b22"/><file name="getitcard.gif" hash="b70e244f36e7aec94fe3f6373e1ae8d7"/><file name="ideal.gif" hash="40f07b266bcd5953bb6c079f7eeaae67"/><file name="jcb.gif" hash="aea8c54e043a75b26887fa1307ad4312"/><file name="jcbsecure.gif" hash="1c687214f79b73d7e99f5011c9c22bce"/><file name="loading.gif" hash="7e99e1159a3686f6aa4f90043c554483"/><file name="maestro.gif" hash="d5df5f7986a21bf5a78b9c7a3656facd"/><file name="mastercard.gif" hash="2680e078159e5aedb561c3a705801a44"/><file name="mastercardsecurecode.gif" hash="730735c1e2d36d9fa3bd6468fa0b1a7d"/><file name="mobilcash.gif" hash="befd2f10976c0ab40333f01fc6db4743"/><file name="nordeasole.gif" hash="17b9be1a06125dcc7d1a6be8fea38dd6"/><file name="oko.gif" hash="1cde3c12036ebd74a643aee2ffb0513a"/><file name="pci.gif" hash="b55a87df550ea6789c17e389604e28e1"/><file name="seb.gif" hash="502b1dbeb81bce51abd1ea149d4dde14"/><file name="shbdirektbetaling.gif" hash="0aa7c7fab4133ff4843c0ae73cabe9de"/><file name="swedbankdirektbetaling.gif" hash="d6da3e67f8096811c2ad0135b2aad80a"/><file name="valus.gif" hash="e62b75eb172934e118a70366baac51ee"/><file name="verifiedbyvisa.gif" hash="517118742fce249485c8eaf6df174764"/><file name="visa.gif" hash="b61251f8c428aa5dca017c9f374957ef"/><file name="visaelectron.gif" hash="e5371ba0da9bb14990d1b8163cedd066"/></dir></dir></dir></dir></dir></target><target name="magelocale"><dir name="da_DK"><file name="Mage_Dibs.csv" hash="7cda20048f8781104d60b6d4663a9291"/></dir><dir name="en_US"><file name="Mage_Dibs.csv" hash="3c87618730f4635447e3b295525c1bb0"/></dir><dir name="nb_NO"><file name="Mage_Dibs.csv" hash="19ff9d72c131dd0f6195b250115551c1"/></dir><dir name="nn_NO"><file name="Mage_Dibs.csv" hash="19ff9d72c131dd0f6195b250115551c1"/></dir><dir name="sv_SE"><file name="Mage_Dibs.csv" hash="c93da0e92241f76bae4b8ec6973581ae"/></dir></target><target name="magedesign"><dir name="frontend"><dir name="default"><dir name="default"><dir name="layout"><file name="dibs.xml" hash="e0fcac411141323aec77d6b77862f063"/></dir><dir name="template"><dir name="dibs"><dir name="standard"><file name="form.phtml" hash="449b1b49d82239f3af471d598608ae4c"/><file name="redirect_flexwin.phtml" hash="0299f6bc9f9cf1ada27127ad432af3a9"/><file name="redirect_paymentwindow.phtml" hash="7df4399d8f73ced839a115653affaff0"/></dir></dir></dir></dir></dir></dir></target><target name="magelocal"><dir name="Mage"><dir name="Adminhtml"><dir name="Block"><dir name="Sales"><dir name="Order"><dir name="View"><dir name="Tab"><file name="Info.php" hash="ce54f910bfcdf2b41b2663dadb7ba2fc"/></dir></dir></dir></dir></dir></dir><dir name="Dibs"><dir name="Block"><dir name="Standard"><file name="Form.php" hash="dd81a2e22e518ff104ed3f69528fe347"/><file name="Redirect.php" hash="a652884e7f9ec32cf96df6494e814f4e"/></dir></dir><dir name="controllers"><file name="StandardController.php" hash="867a19525fbabd16da2cc4137f55bf5f"/></dir><dir name="etc"><file name="config.xml" hash="72218118c9820816de7b65624dbe459a"/><file name="system.xml" hash="58f3eaf67bed5cdb9e1b1fb217522879"/></dir><dir name="Helper"><file name="Data.php" hash="b93ec2269b9a302c2e3176e45bffbf73"/></dir><dir name="Model"><dir name="Mysql4"><file name="Setup.php" hash="c18fda329fa5d40b31ac76e4955afa31"/></dir><dir name="System"><dir name="Config"><dir name="Source"><file name="Color.php" hash="78084ee39f49af7291ab0f6cb0ab7f8b"/><file name="Decorator.php" hash="29e5a6c1aa9f92b0542ad2381d5fbabc"/><file name="Dibslogos.php" hash="29a026f1229bafda94a04352e74739e8"/><file name="Lang.php" hash="842d86a353e0f5d1339bb38feea1ec00"/><file name="Paymentwindow.php" hash="0742db19898c94c777385ce2160e25f9"/></dir></dir></dir><file name="Standard.php" hash="f3158b5a714dd0d612f990bd37c8f30d"/></dir><dir name="sql"><dir name="dibs_setup"><file name="mysql4-install-0.7.0.php" hash="09b330e4f4cdfddb3678026e670061a1"/><file name="mysql4-install-1.0.0.0.php" hash="21e3eb2b537a890e6b2e323e6b746655"/><file name="mysql4-install-1.0.0.1.php" hash="21e3eb2b537a890e6b2e323e6b746655"/><file name="mysql4-install-1.0.0.2.php" hash="21e3eb2b537a890e6b2e323e6b746655"/><file name="mysql4-install-1.0.0.3.php" hash="21e3eb2b537a890e6b2e323e6b746655"/><file name="mysql4-install-1.0.0.4.php" hash="21e3eb2b537a890e6b2e323e6b746655"/><file name="mysql4-install-1.0.0.5.php" hash="21e3eb2b537a890e6b2e323e6b746655"/><file name="mysql4-install-1.0.0.6.php" hash="21e3eb2b537a890e6b2e323e6b746655"/><file name="mysql4-install-1.0.0.7.php" hash="21e3eb2b537a890e6b2e323e6b746655"/><file name="mysql4-install-1.0.0.8.php" hash="21e3eb2b537a890e6b2e323e6b746655"/></dir></dir></dir><dir name="Sales"><dir name="Block"><dir name="Order"><file name="Info.php" hash="9e6166c1a038944900094a9dbde9a3a1"/><file name="Print.php" hash="990ab1545e691e8cdc4daf7a8e802069"/></dir></dir></dir></dir></target><target name="mageetc"><dir name="modules"><file name="dibs.xml" hash="8bd9e75f2ab5a6f258ea296caff89d7d"/></dir></target></contents>
+    <compatible/>
+    <dependencies/>
+</package>

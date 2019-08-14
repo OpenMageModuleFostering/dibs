@@ -1,0 +1,16 @@
+{
+    "name": "OpenMageModuleFostering/DIBS",
+    "type": "magento-module",
+    "license": "GPL",
+    "homepage": "",
+    "description": "Accept all types of payments from DIBS - Secure Internet Payment Service Provider",
+    "authors": [
+    {
+        "name": "DIBS AS",
+        "email": "plugins@dibs.dk"
+    }
+],
+    "suggest": {
+        "magento-hackathon/magento-composer-installer": "*"
+    }
+}

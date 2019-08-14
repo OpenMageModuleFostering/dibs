@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+
+<layout version="0.1.0">
+
+    <dibs_redirect>
+        <reference name="content">
+            <block type="page/html" name="redirect" template="dibs/standard/redirect.phtml"></block>
+        </reference>
+    </dibs_redirect>
+
+
+</layout>

@@ -1,0 +1,158 @@
+<?php
+//
+// Load the dibs standard object
+//
+$standard = Mage::getModel('dibs/standard');
+
+//
+// If paymentwindow is not set something is wrong - throw exception then
+//
+if ($standard->getConfigData('paymentwindow') != '2') {
+	throw new exception("Invalid integrated type!?!?");
+}
+
+//
+// Fetch order invoice info
+//
+$order = Mage::getModel('sales/order');
+$order->loadByIncrementId($standard->getCheckout()->getLastRealOrderId());
+$convertor = Mage::getModel('sales/convert_order');
+$invoice = $convertor->toInvoice($order); 
+
+
+
+//
+// Go on and load the payment form containing the values
+//
+?>
+<br />
+<br /> 
+<br />
+<table border="0" width="100%">
+	<tr>
+		<td>
+			<label for="Orderid"><?php echo $this->__('DIBS_LABEL_4') ?> :</label>
+		</td>
+		<td>
+	  		<label for="Orderid"><?php echo $standard->getCheckout()->getLastRealOrderId() ?></label>
+	  	</td>
+	  </tr>
+	  <tr>
+	  	<td>
+			<label for="Amount"><?php echo $this->__('DIBS_LABEL_5') ?> :</label>
+		</td>
+		<td>
+	  		<label for="CurrencyAmount"><?php echo $order->getOrderCurrency()->getCode() . "&nbsp;" . number_format($order->getTotalDue(), 2, ',', ' ') ?></label>
+	  	</td>
+	  </tr>
+</table>
+<br />
+<br />
+<img src="<?php echo $this->getSkinUrl('images/dibs/loading.gif') ?>" border="0" title="loading" align="center" />
+<p align="center" >
+<b><?php echo $this->__('DIBS_LABEL_6') ?></b>
+</p>
+
+<form action="https://payment.architrade.com/payment/start.pml" method="post" name="dibs" id="dibs">	
+	<input type="hidden" name="merchant" value="<?php echo $standard->getConfigData("merchantid") ?>">
+	<input type="hidden" name="accepturl" value="<?php echo Mage::getUrl('dibs/standard/success') ?>">
+	<input type="hidden" name="cancelurl" value="<?php echo Mage::getUrl('dibs/standard/cancel') ?>">
+	<input type="hidden" name="callbackurl" value="<?php echo Mage::getUrl('dibs/standard/callback') ?>">
+	<input type="hidden" name="orderid" value="<?php echo $standard->getCheckout()->getLastRealOrderId() ?>">
+	<input type="hidden" name="amount" value="<?php echo $order->getTotalDue() * 100 ?>">
+	<input type="hidden" name="currency" value="<?php echo $standard->convertToDibsCurrency($order->getOrderCurrency()) ?>">
+	<input type="hidden" name="HTTP_COOKIE" value="<?php echo getenv('HTTP_COOKIE')?>">	
+	<?php 
+		if ($standard->getConfigData("md5key1") != "" && $standard->getConfigData("md5key2") != "") {
+			$md5key=md5($standard->getConfigData("md5key2").md5($standard->getConfigData("md5key1").'merchant='.$standard->getConfigData("merchantid").'&orderid='.$standard->getCheckout()->getLastRealOrderId().'&currency='.$standard->convertToDibsCurrency($order->getOrderCurrency()).'&amount='.$order->getTotalDue() * 100));
+			print '<input type="hidden" name="md5key" value="'.$md5key.'" />';
+		}
+		if ($standard->getConfigData("test_mode") == "1") {
+			print '<input type="hidden" name="test" value="yes" />';
+		}
+		if ($standard->getConfigData("calcfee") == "1") {
+			print '<input type="hidden" name="calcfee" value="yes" />';
+		}
+		if ($standard->getConfigData("capturenow") == "1") {
+			print '<input type="hidden" name="capturenow" value="yes" />';
+		}
+		if ($standard->getConfigData("paytype") != "") {
+			print '<input type="hidden" name="paytype" value="'.$standard->getConfigData("paytype").'" />';
+		}
+		if ($standard->getConfigData("account") != "") {
+			print '<input type="hidden" name="account" value="'.$standard->getConfigData("account").'" />';
+		}
+		if ($standard->getConfigData("color") != "blank") {
+			print '<input type="hidden" name="color" value="'.$standard->getConfigData("color").'" />';
+		}
+		if ($standard->getConfigData("uniqueoid") == "1") {
+			print '<input type="hidden" name="uniqueoid" value="yes" />';
+		}
+		if ($standard->getConfigData("lang") != "auto") {
+			print '<input type="hidden" name="lang" value="'.$standard->getConfigData("lang").'" />';
+		} else {
+			$dibs_lang_arr= array('da' => 'da','en' => 'en', 'sv' => 'sv', 'nn' => 'no', 'nb' => 'no', 'fi' => 'fi', 'de' => 'de', 'nl' => 'nl', 'fr' => 'fr', 'es' => 'es', 'it' => 'it', 'fo' => 'fo');
+			foreach ($dibs_lang_arr as $key => $value) {
+				if (substr(Mage::app()->getLocale()->getLocaleCode(),0,2) == $key) {
+					$status = true;
+					break;
+				} else {
+					$status = false;
+				}
+			}
+			if ($status) {
+				print '<input type="hidden" name="lang" value="'.$dibs_lang_arr[substr(Mage::app()->getLocale()->getLocaleCode(),0,2)].'" />';
+			} else {
+				print '<input type="hidden" name="lang" value="en" />';
+			}
+		}
+		
+		$items = $order->getAllItems();
+		$shipping_address = $order->getShippingAddress();
+		$billing_address = $order->getBillingAddress();
+		
+		if ($billing_address) {
+			print '<input type="hidden" name="delivery01.Billing" value="<b>Billing Address</b>" /><br />';
+        	print '<input type="hidden" name="delivery02.Firstname" value="'.$billing_address['firstname'].'" /><br />';
+        	print '<input type="hidden" name="delivery03.Lastname" value="'.$billing_address['lastname'].'" /><br />';
+        	print '<input type="hidden" name="delivery04.Street" value="'.$billing_address['street'].'" /><br />';
+        	print '<input type="hidden" name="delivery05.Postcode" value="'.$billing_address['postcode'].'" /><br />';
+        	print '<input type="hidden" name="delivery06.City" value="'.$billing_address['city'].'" /><br />';
+        	print '<input type="hidden" name="delivery07.Region" value="'.$billing_address['region'].'" /><br />';
+        	print '<input type="hidden" name="delivery08.Country" value="'.$billing_address['country_id'].'" /><br />';
+        	print '<input type="hidden" name="delivery09.Telephone" value="'.$billing_address['telephone'].'" /><br />';
+        	print '<input type="hidden" name="delivery10.E-mail" value="'.$order['customer_email'].'" /><br />';
+        }
+        if ($shipping_address) {
+			print '<input type="hidden" name="delivery11.Delivery" value="<b>Shipping Address</b>" /><br />';
+        	print '<input type="hidden" name="delivery12.Firstname" value="'.$shipping_address['firstname'].'" /><br />';
+        	print '<input type="hidden" name="delivery13.Lastname" value="'.$shipping_address['lastname'].'" /><br />';
+        	print '<input type="hidden" name="delivery14.Street" value="'.$shipping_address['street'].'" /><br />';
+        	print '<input type="hidden" name="delivery15.Postcode" value="'.$shipping_address['postcode'].'" /><br />';
+        	print '<input type="hidden" name="delivery16.City" value="'.$shipping_address['city'].'" /><br />';
+        	print '<input type="hidden" name="delivery17.Region" value="'.$shipping_address['region'].'" /><br />';
+        	print '<input type="hidden" name="delivery18.Country" value="'.$billing_address['country_id'].'" /><br />';
+        	print '<input type="hidden" name="delivery19.Telephone" value="'.$shipping_address['telephone'].'" /><br />';
+        }
+		if ($items) {
+			$i = 1;
+			print '<input type="hidden" name="ordline0-1" value="SKU" />';
+			print '<input type="hidden" name="ordline0-2" value="Name" />';
+			print '<input type="hidden" name="ordline0-3" value="Quantity" />';
+			print '<input type="hidden" name="ordline0-4" value="Total" />';
+                foreach($items as $item) {
+                  print '<input type="hidden" name="ordline'.$i.'-1" value="'.$item->getSku().'" />';
+                  print '<input type="hidden" name="ordline'.$i.'-2" value="'.$item->getName().'" />';
+                  print '<input type="hidden" name="ordline'.$i.'-3" value="'.$item->getQtyOrdered().'" />';
+                  print '<input type="hidden" name="ordline'.$i.'-4" value="'.$item->getQtyOrdered() * $item->getPrice().'" />';
+                  $i++;
+                }
+        	print '<input type="hidden" name="priceinfo1.Shippingmethod" value="'.$order['shipping_description'].'" />';
+			print '<input type="hidden" name="priceinfo2.Shippingcost" value="'.$order['shipping_amount'].'" />';
+		}
+	?>
+
+	<script type="text/javascript">
+			setTimeout("document.getElementById('dibs').submit();",1000);
+	</script>
+</form>

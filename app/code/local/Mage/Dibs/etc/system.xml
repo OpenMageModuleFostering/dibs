@@ -1,0 +1,234 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright ePay | Dit Online Betalingssystem, (c) 2009.
+ * Modifications copyrighted by  DIBS | Secure Payment Services, (c) 2009.
+ */
+-->
+<config>
+   <sections>
+        <payment>
+            <groups>
+                <dibs_standard translate="label" module="dibs">
+                     <label>DIBS | Secure Payment Services (www.dibspayment.com)</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>1</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>0</show_in_store>
+                    <fields>
+                        <active translate="label">
+                            <label>Enabled</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>1</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </active>
+                        <title translate="label">
+                            <label>Title</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>2</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </title>
+                        <order_status translate="label">
+                            <label>Order status (Before the payment is made)</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_order_status</source_model>
+                            <sort_order>3</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </order_status>
+			<order_status_after_payment translate="label">
+                            <label>New order status (When the payment is made)</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_order_status</source_model>
+                            <sort_order>4</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </order_status_after_payment>
+                         <sort_order translate="label">
+                            <label>Sort order</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>5</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </sort_order>
+                         <allowspecific translate="label">
+                            <label>Payment from applicable countries</label>
+                            <frontend_type>allowspecific</frontend_type>
+                            <sort_order>6</sort_order>
+                            <source_model>adminhtml/system_config_source_payment_allspecificcountries</source_model>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </allowspecific>
+                        <specificcountry translate="label">
+                            <label>Payment from Specific countries</label>
+                            <frontend_type>multiselect</frontend_type>
+                            <sort_order>7</sort_order>
+                            <source_model>adminhtml/system_config_source_country</source_model>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </specificcountry>
+                        <merchantid translate="label">
+                            <label>DIBS Merchant ID</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>8</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </merchantid>
+                        <account translate="label">
+                            <label>Account</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>9</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </account>
+                        <test_mode translate="label">
+                            <label>Test mode</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </test_mode>
+                        <capturenow translate="label">
+                            <label>Capture Now</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>11</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </capturenow>
+                        <uniqueoid translate="label">
+                            <label>Unique order id</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>12</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </uniqueoid>
+                        <calcfee translate="label">
+                            <label>Calc fee</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>13</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </calcfee>
+                        <md5key1 translate="label">
+                            <label>MD5 Key1</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>14</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </md5key1>
+                        <md5key2 translate="label">
+                            <label>MD5 Key2</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>15</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </md5key2>
+                        <paytype translate="label">
+                            <label>Paytype</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>16</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </paytype>
+                        <paymentwindow translate="label">
+                            <label>Payment Window or FlexWin</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>dibs/system_config_source_paymentwindow</source_model>
+                            <sort_order>17</sort_order>
+                            <show_in_default>2</show_in_default>
+                            <show_in_website>2</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </paymentwindow>
+                        <skiplastpage translate="label">
+                            <label>Skip last page (Only used if FlexWin is selected)</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>18</sort_order>
+                            <show_in_default>2</show_in_default>
+                            <show_in_website>2</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </skiplastpage>
+			<decorator translate="label">
+                            <label>FlexWin Decorator (Only used if FlexWin is selected)</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>dibs/system_config_source_decorator</source_model>
+                            <sort_order>19</sort_order>
+                            <show_in_default>2</show_in_default>
+                            <show_in_website>2</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </decorator>
+			<color translate="label">
+                            <label>FlexWin / Payment Window Color</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>dibs/system_config_source_color</source_model>
+                            <sort_order>20</sort_order>
+                            <show_in_default>2</show_in_default>
+                            <show_in_website>2</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </color>
+                        <lang translate="label">
+                            <label>Language used in  Payment Window / FlexWin</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>dibs/system_config_source_lang</source_model>
+                            <sort_order>21</sort_order>
+                            <show_in_default>2</show_in_default>
+                            <show_in_website>2</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </lang>
+                        <sendmailorderconfirmation translate="label">
+                            <label>Send Email Order Confirmation. Enabling this setting will result in an email confirmation is send to the cardholder as the payment is made.</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>22</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </sendmailorderconfirmation>
+                        <dibslogos translate="label">
+                            <label>Which logos to show</label>
+                            <frontend_type>multiselect</frontend_type>
+                            <source_model>dibs/system_config_source_dibslogos</source_model>
+                            <sort_order>23</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </dibslogos>
+                        <handlestock translate="label">
+                            <label>Handle stock. The quantity purchased in stock will at first be decremented as the payment is made.</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>24</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </handlestock>
+                    </fields>
+                </dibs_standard>
+            </groups>
+        </payment>
+    </sections>
+</config>

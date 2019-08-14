@@ -1,0 +1,144 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright ePay | Dit Online Betalingssystem, (c) 2009.
+ * Modifications copyrighted by  DIBS | Secure Payment Services, (c) 2009.
+ */
+-->
+<config>
+    <modules>
+        <Mage_Dibs>
+            <version>1.0.0.8</version>
+            <depends>
+                <Mage_Paygate />
+            </depends>
+        </Mage_Dibs>
+    </modules>
+    <global>
+        <models>
+            <dibs>
+                <class>Mage_Dibs_Model</class>
+                <resourceModel>dibs_mysql4</resourceModel>
+            </dibs>
+            <dibs_mysql4>
+                <class>Mage_Dibs_Model_Mysql4</class>
+                <entities>
+                    <api_debug><table>dibs_api_debug</table></api_debug>
+                </entities>
+            </dibs_mysql4>
+        </models>
+        <resources>
+            <dibs_setup>
+                <setup>
+                    <module>Mage_Dibs</module>
+                    <class>Mage_Dibs_Model_Mysql4_Setup</class>
+                </setup>
+                <connection>
+                    <use>core_setup</use>
+                </connection>
+            </dibs_setup>
+            <dibs_write>
+                <connection>
+                    <use>core_write</use>
+                </connection>
+            </dibs_write>
+            <dibs_read>
+                <connection>
+                    <use>core_read</use>
+                </connection>
+            </dibs_read>
+        </resources>
+        <blocks>
+            <dibs><class>Mage_Dibs_Block</class></dibs>
+        </blocks>
+    </global>
+    <frontend>
+	    <secure_url>
+	        <dibs_standard>/dibs/standard</dibs_standard>
+	    </secure_url>
+	    <routers>
+	        <dibs>
+	            <use>standard</use>
+	            <args>
+	                <module>Mage_Dibs</module>
+	                <frontName>dibs</frontName>
+	            </args>
+	        </dibs>
+	    </routers>
+	    <translate>
+	        <modules>
+	            <Mage_Dibs>
+	                <files>
+	                    <default>Mage_Dibs.csv</default>
+	                </files>
+	            </Mage_Dibs>
+	        </modules>
+	    </translate>
+	    <layout>
+	         <updates>
+	              <dibs_standard_redirect>
+	                    <file>dibs.xml</file>
+	              </dibs_standard_redirect>
+	         </updates>
+	    </layout>
+    </frontend>
+    <adminhtml>
+        <translate>
+            <modules>
+                <Mage_Dibs>
+                    <files>
+                        <default>Mage_Dibs.csv</default>
+                    </files>
+                </Mage_Dibs>
+            </modules>
+        </translate>
+        <acl>
+            <resources>
+                <admin>
+                    <children>
+                        <system>
+                            <children>
+                                <config>
+                                    <children>
+                                        <dibs>
+                                            <title>Dibs Section</title>
+                                        </dibs>
+                                    </children>
+                                </config>
+                            </children>
+                        </system>
+                    </children>
+                </admin>
+            </resources>
+        </acl>
+    </adminhtml>
+
+    <default>
+        <payment>
+            <dibs_standard>
+                  <model>dibs/standard</model>
+                  <active>1</active>
+                  <title>DIBS | Secure Payment Services</title>
+                  <sort_order>1</sort_order>
+                  <allowspecific>0</allowspecific>
+                  <merchantid>ENTER YOUR MERCHANT ID HERE</merchantid>
+                  <test_mode>1</test_mode>
+                  <capturenow>0</capturenow>
+                  <uniqueoid>0</uniqueoid>
+                  <calcfee>0</calcfee>
+                  <paymentwindow>1</paymentwindow>
+                  <skiplastpage>0</skiplastpage>
+                  <decorator>default</decorator>
+                  <color>blank</color>
+		  <lang>auto</lang>	
+	  	  <sendmailorderconfirmation>1</sendmailorderconfirmation>
+                  <dibslogos>DIBS</dibslogos>
+                  <handlestock>1</handlestock>
+            </dibs_standard>
+        </payment>
+    </default>
+    <interest_form>
+    	<label>lead capture form</label>
+	<template>page/leadcapture.phtml</template>
+    </interest_form> 
+</config>
